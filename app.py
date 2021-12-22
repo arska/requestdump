@@ -8,8 +8,8 @@ from flask import Flask, request
 APP = Flask(__name__)  # Standard Flask app
 
 
-@APP.route("/", defaults={"path": "root"})
-@APP.route("/<path>")
+@APP.route("/", defaults={"path": "root"}, methods=['GET', 'POST', 'DELETE'])
+@APP.route("/<path>", methods=['GET', 'POST', 'DELETE'])
 def hello(path):
     """
     Hello world on root path
